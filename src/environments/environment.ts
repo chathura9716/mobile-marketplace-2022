@@ -4,17 +4,15 @@
 
 export const environment = {
   production: false,
-  
   firebaseConfig:{
-    apiKey: "AIzaSyAnsSVLactwsAY3zLD9YYKvieT9TkgUdB8",
-    authDomain: "mobilemarketplace-266c5.firebaseapp.com",
-    projectId: "mobilemarketplace-266c5",
-    storageBucket: "mobilemarketplace-266c5.appspot.com",
-    messagingSenderId: "310374443092",
-    appId: "1:310374443092:web:4f391892f6557eed1c65c1"
+    apiKey: "AIzaSyDNFZ8ld9_nkBgx1vnz8I4j5sEsqtSdc-Y",
+    authDomain: "mobilemarketplace-5aff7.firebaseapp.com",
+    projectId: "mobilemarketplace-5aff7",
+    storageBucket: "mobilemarketplace-5aff7.appspot.com",
+    messagingSenderId: "736382233216",
+    appId: "1:736382233216:web:4a71202356955fdd805465"
   }
-    }
-
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
