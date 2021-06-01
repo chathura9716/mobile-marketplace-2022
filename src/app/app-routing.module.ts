@@ -9,14 +9,14 @@ const routes: Routes = [
     canActivate:[AuthGuard]
 
   },
-  // {
-  //   path: 'home1',
-  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  // },
-  // {
-  //   path: 'my-listings',
-  //   loadChildren: () => import('./my-listings/my-listings.module').then( m => m.MyListingsPageModule)
-  // },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'my-listings',
+    loadChildren: () => import('./my-listings/my-listings.module').then( m => m.MyListingsPageModule)
+  },
   // {
   //   path: 'my-listings-add',
   //   loadChildren: () => import('./my-listings-add/my-listings-add.module').then( m => m.MyListingsAddPageModule)

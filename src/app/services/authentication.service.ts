@@ -3,6 +3,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
+export class TODO {
+  $key: string;
+  title: string;
+  description: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +20,7 @@ export class AuthenticationService {
  
  
   userData;
-  constructor(private ngFireAuth:AngularFireAuth,private router:Router,public afStore:AngularFirestore) { 
+  constructor(Router,private ngFirestore:AngularFirestore,private ngFireAuth:AngularFireAuth,private router:Router,public afStore:AngularFirestore) { 
       this.ngFireAuth.authState.subscribe(user=>{
         if(user){
           this.userData =user;
@@ -38,4 +45,30 @@ export class AuthenticationService {
   {
     return this.ngFireAuth.user;
   }
+
+
+  create(todo: TODO) {
+    return this.ngFirestore.collection('tasks').add(todo);
+  }
+
+  getTasks() {
+    return this.ngFirestore.collection('tasks').snapshotChanges();
+  }
+  
+  getTask(id) {
+    return this.ngFirestore.collection('tasks').doc(id).valueChanges();
+  }
+
+  update(id, todo: TODO) {
+    this.ngFirestore.collection('tasks').doc(id).update(todo)
+      .then(() => {
+        this.router.navigate(['/todo-list']);
+      }).catch(error => console.log(error));;
+  }
+
+  delete(id: string) {
+    this.ngFirestore.doc('tasks/' + id).delete();
+  }
+
 }
+

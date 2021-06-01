@@ -6,6 +6,6 @@ export const environment = {
     projectId: "mobilemarketplace-5aff7",
     storageBucket: "mobilemarketplace-5aff7.appspot.com",
     messagingSenderId: "736382233216",
-    appId: "1:736382233216:web:4a71202356955fdd805465"
+    appId: "1:736382233216:web:4458951989533a07805465"
   }
 };
