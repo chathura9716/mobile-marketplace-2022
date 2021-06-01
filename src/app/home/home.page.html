@@ -5,6 +5,19 @@
 </ion-header>
 
 <ion-content>
+  <ion-card color="light" class="ion-text-center" *ngFor="let item of images | async">
+    <ion-card-header>
+      <ion-card-title>
+        {{ item.no }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="item.filepath" />
+      <a [href]="item.filepath" target="_blank" rel="noopener">Download</a>
+    </ion-card-content>
+  </ion-card>
+  
   
 
 </ion-content>
