@@ -52,7 +52,7 @@ export class MyListingsPage implements OnInit {
      this.images = this.imageCollection.valueChanges();
    }
    ngOnInit() {
-    
+   
   }
  
  
