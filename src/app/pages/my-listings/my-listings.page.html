@@ -24,9 +24,7 @@
     <ion-toolbar >
       <ion-item lines="none">
         <ion-label shape="round" color="secondary" style="font-weight: 800; font-size:1.5em;">
-          <p class="txt-time" slot="end">{{time | date:'mediumTime'}}</p>
-          <h2>{{today| date:'fullDate'}}</h2>
-          <br>
+          
           <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
 
         </ion-label>
