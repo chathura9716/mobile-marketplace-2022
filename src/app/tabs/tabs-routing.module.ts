@@ -4,32 +4,31 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
-      },
-      {
-        path: 'my-listings',
-        loadChildren: () => import('../my-listings/my-listings.module').then( m => m.MyListingsPageModule)
+        loadChildren: () => import('../pages/listing/listing.module').then( m => m.ListingPageModule)
       },
       {
         path: 'profile',
-        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+        loadChildren: () => import('../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
-      
+      {
+        path: 'my-listing',
+        loadChildren: () => import('../pages/my-listings/my-listings.module').then(m => m.MyListingsPageModule)
+      },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: '/tabs/my-listing',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: '/tabs/my-listing',
     pathMatch: 'full'
   }
 ];

@@ -1,0 +1,80 @@
+<ion-app  color="secondary">
+
+<ion-header >
+  <ion-toolbar>
+    
+
+  
+   
+      <ion-item color="secondary">
+        <ion-icon  slot="start" style="zoom:1.5;" name="cart-outline"></ion-icon>
+        <ion-label><h1>Items List</h1></ion-label>
+      </ion-item>
+      
+    
+
+    <ion-icon name="power-outline" (click)="signout()" slot="end" style="zoom:2.0;"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<div class="time">
+  <ion-header [translucent]="true">
+   
+    <ion-toolbar >
+      <ion-item lines="none">
+        <ion-label shape="round" color="secondary" style="font-weight: 800; font-size:1.5em;">
+          <p class="txt-time" slot="end">{{time | date:'mediumTime'}}</p>
+          <h2>{{today| date:'fullDate'}}</h2>
+          <br>
+          <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+
+        </ion-label>
+
+
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+</div>
+  <ion-content [fullscreen]="false">
+
+    <ion-list *ngFor="let note of (notes|async) | filter:filterTerm">
+     
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{note.createAt|date:'mediumDate'}}
+          added by {{note.name}}
+        </ion-card-subtitle>
+       
+        <ion-item lines="none">
+          <ion-icon name="file-tray-outline"></ion-icon>
+          <ion-label>{{ note.title }}</ion-label>
+       
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button shape="round" color="primary" slot="start" size="small" [routerLink]="'/view/'+note.id" color="secondary">Open</ion-button>
+      </ion-card-content>
+   
+   
+    
+  
+    </ion-list>
+
+
+
+  </ion-content>
+
+
+</ion-app>
+
+
+
+
+
+
+
+
+
+
+

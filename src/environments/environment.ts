@@ -7,12 +7,15 @@ export const environment = {
   firebaseConfig:{
     apiKey: "AIzaSyDNFZ8ld9_nkBgx1vnz8I4j5sEsqtSdc-Y",
     authDomain: "mobilemarketplace-5aff7.firebaseapp.com",
+    databaseURL: "https://mobilemarketplace-5aff7-default-rtdb.firebaseio.com",
     projectId: "mobilemarketplace-5aff7",
     storageBucket: "mobilemarketplace-5aff7.appspot.com",
     messagingSenderId: "736382233216",
     appId: "1:736382233216:web:4458951989533a07805465"
   }
-}
+
+
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item color="secondary" > 
+      <ion-icon  slot="start" style="zoom:1.5;" name="id-card-outline"></ion-icon>
+      <h3>Update Details</h3>
+      
+    </ion-item>
+    <ion-icon name="power-outline" (click)="signout()" slot="end" style="zoom:2.0;"></ion-icon>
+    
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+
+  <div class = "emailForm">
+    <h2 class = "ion-text-center header_lbl">Edit Your Personal Details</h2>
+    <form [formGroup]="registration_form">
+      <ion-item lines="full">
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" formControlName="fname" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" formControlName="lname" required></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Mobile Number</ion-label>
+        <ion-input type="text" formControlName="pnum" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button class="btn_class" [disabled]="!registration_form.valid" shape="round" color="secondary" type="submit" (click)="update(registration_form.value)" expand="block">Update</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-button color="primary" shape="round" slot="end" (click)="back()">Go Back</ion-button>
+    </form>
+  </div>
+</ion-content>

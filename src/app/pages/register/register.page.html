@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-button slot="end" (click)="back()">Login</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+    <div class = "emailForm">
+      <h1 class = "ion-text-center header_lbl">Fill Your Details</h1>
+      <form [formGroup]="registration_form">
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">First Name</ion-label>
+          <ion-input type="text" formControlName="fname" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">Last Name</ion-label>
+          <ion-input type="text" formControlName="lname" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">Email</ion-label>
+          <ion-input type="text" formControlName="email" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">Mobile Number</ion-label>
+          <ion-input type="text" formControlName="pnum" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">Password</ion-label>
+          <ion-input type="text" formControlName="password" type="password" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating" class="label">Confirm Password</ion-label>
+          <ion-input type="text" formControlName="confpassword" type="password" required></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <ion-button class="btn_class" [disabled]="!registration_form.valid" color="secondary" type="submit" (click)="signUp(registration_form.value)" expand="block">Registor</ion-button>
+          </ion-col>
+        </ion-row>
+
+      </form>
+    </div>
+
+
+  <div class="emailForm">
+    <p class="subtitle ion-text-center">{{text}}</p>
+  </div>
+
+</ion-content>

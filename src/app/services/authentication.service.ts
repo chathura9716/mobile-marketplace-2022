@@ -1,74 +1,63 @@
-import { Injectable } from '@angular/core';
+// authentication.service.ts
+import { Injectable } from "@angular/core";
 import { AngularFireAuth } from '@angular/fire/auth';
-import {AngularFirestore} from '@angular/fire/firestore';
-import { Router } from '@angular/router';
+import { NavController } from "@ionic/angular";
 
-export class TODO {
-  $key: string;
-  title: string;
-  description: string;
-}
-
+import '@firebase/auth';
+import {firebase} from '@firebase/app';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
-  setEmailVerfied(hasVerifiedEmail: boolean, uid: any, currentUser: any) {
-    throw new Error('Method not implemented.');
-  }
- 
- 
-  userData;
-  constructor(Router,private ngFirestore:AngularFirestore,private ngFireAuth:AngularFireAuth,private router:Router,public afStore:AngularFirestore) { 
-      this.ngFireAuth.authState.subscribe(user=>{
-        if(user){
-          this.userData =user;
-          localStorage.setItem('user',JSON.stringify(this.userData))
-        }
-        else{
-          localStorage.setItem('user',null);
-        }
-      })
-  }
-  SignIn(email,password){
-    return this.ngFireAuth.signInWithEmailAndPassword(email,password);
-  }
-  RegisterUser(email,password){
-    return this.ngFireAuth.createUserWithEmailAndPassword(email,password);
-  }
-  SignOut(){
-    return this.ngFireAuth.signOut();
-  }
-  
-  getUser()
-  {
-    return this.ngFireAuth.user;
-  }
+export class AuthenticateService {
+
+  constructor(
+    private afAuth: AngularFireAuth,
+    private navCtrl: NavController,
+    private router : Router
 
 
-  create(todo: TODO) {
-    return this.ngFirestore.collection('tasks').add(todo);
+  ) { }
+
+  registerUser(value) {
+    return new Promise<any>((resolve, reject) => {
+
+      this.afAuth.createUserWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => resolve(res),
+          err => reject(err))
+
+    });
+
   }
 
-  getTasks() {
-    return this.ngFirestore.collection('tasks').snapshotChanges();
-  }
-  
-  getTask(id) {
-    return this.ngFirestore.collection('tasks').doc(id).valueChanges();
+  loginUser(value) {
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.signInWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => resolve(res),
+          err => reject(err))
+
+    })
   }
 
-  update(id, todo: TODO) {
-    this.ngFirestore.collection('tasks').doc(id).update(todo)
-      .then(() => {
-        this.router.navigate(['/todo-list']);
-      }).catch(error => console.log(error));;
+  public async signout(): Promise<any> {
+
+
+    try {
+      this.router.navigateByUrl('');
+
+      return await this.afAuth.signOut();
+
+    } catch (e) {
+      console.error("big hu?", e);
+    }
+
+
   }
 
-  delete(id: string) {
-    this.ngFirestore.doc('tasks/' + id).delete();
+  userDetails() {
+    return this.afAuth.user;
   }
-
 }
-
