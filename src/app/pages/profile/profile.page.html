@@ -2,7 +2,7 @@
   <ion-toolbar>
  
     <ion-item color="secondary" > 
-      <ion-icon  slot="start" style="zoom:1.5;" name="person-outline"></ion-icon><h3>Edit Profile</h3></ion-item>
+      <ion-icon  slot="start" style="zoom:1.5;" name="person-outline"></ion-icon><h3>Edit Profile Details</h3></ion-item>
     <ion-icon name="power-outline" (click)="signout()" slot="end" style="zoom:2.0;"></ion-icon>
 
   </ion-toolbar>
@@ -19,7 +19,7 @@
   <div style="text-align: center;">
    
     <input type="file" (change)="showPreview($event)" >
-    <ion-button  color="tertiary" shape="round" (click)="save()" [class.button-disabled]="choose()" >Change It</ion-button>
+    <ion-button  color="tertiary" shape="round" (click)="save()" [class.button-disabled]="choose()" >Change Profile Picture</ion-button>
   </div>
 
 </ion-card>
