@@ -4,7 +4,7 @@
     <ion-toolbar>
       <ion-item color ="secondary">
         <ion-icon slot="start" style="zoom:1.5;" name="newspaper-outline"></ion-icon>
-        <ion-label><h1>My items</h1></ion-label>
+        <ion-label><h1>My Store</h1></ion-label>
       </ion-item>
 
       <ion-icon name="power-outline" (click)="signout()" slot="end" style="zoom:2.0;"></ion-icon>
@@ -29,12 +29,12 @@
   </div>
     <ion-content [fullscreen]="true">
 
-      <ion-list *ngFor="let note of (notes|async) | filter:filterTerm">
-        <ion-card  color="dark">
+      <ion-list color="dark" *ngFor="let note of (notes|async) | filter:filterTerm">
+        
         <ion-card-header>
           <ion-card-subtitle>
             {{note.createAt|date:'mediumDate'}}
-            added by {{note.name}}
+            
           </ion-card-subtitle>
         
           <ion-item lines="none">
@@ -44,10 +44,10 @@
       
         </ion-card-header>
         <ion-card-content>
-          <ion-button shape="round" slot="start" expand="block" [routerLink]="'/view2/'+note.id" color="secondary">Open</ion-button>
+          <ion-button shape="round" slot="start"  [routerLink]="'/view2/'+note.id" color="secondary">Open</ion-button>
         </ion-card-content>
       
-      </ion-card>
+      
       </ion-list>
 
 
