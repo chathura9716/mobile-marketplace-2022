@@ -16,7 +16,7 @@
 
 
   <div class = "emailForm">
-    <h2 class = "ion-text-center header_lbl">Edit Your Personal Details</h2>
+    <h2 class = "ion-text-center header_lbl">Edit Your Details</h2>
     <form [formGroup]="registration_form">
       <ion-item lines="full">
         <ion-label position="floating">First Name</ion-label>
@@ -32,9 +32,10 @@
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button class="btn_class" [disabled]="!registration_form.valid" shape="round" color="secondary" type="submit" (click)="update(registration_form.value)" expand="block">Update</ion-button>
+          <ion-button class="btn_class" [disabled]="!registration_form.valid" shape="round" color="secondary" type="submit" (click)="update(registration_form.value)" >Update</ion-button>
         </ion-col>
       </ion-row>
+      
       <ion-button color="primary" shape="round" slot="end" (click)="back()">Go Back</ion-button>
     </form>
   </div>
