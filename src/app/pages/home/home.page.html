@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar color="denger">
+  <ion-toolbar color="danger">
    
     <ion-item color ="secondary">
       <ion-icon slot="start" style="zoom:1.5;" name="bag-add-outline"></ion-icon>
-      <ion-label><h1>Add Items</h1></ion-label>
+      <ion-label><h1>Insert Items</h1></ion-label>
     </ion-item>
   
    
@@ -21,12 +21,12 @@
 
         <ion-list lines="none">
           <ion-item>
-            <ion-input placeholder=" Enter Item Name" [(ngModel)]="note.title" class="t1"></ion-input>
+            <ion-input placeholder=" Enter Item Title" [(ngModel)]="note.title" class="t1"></ion-input>
 
           </ion-item>
           <div style="height: 20px;"></div>
           <ion-item>
-            <textarea #myInput id="myInput" class="textarea" placeholder="Enter item infrmation" rows="20" maxLength="10000" (keyup)="resize()" [(ngModel)]="note.content" lines="none" ></textarea>
+            <textarea #myInput id="myInput" class="textarea" placeholder="Enter item details" rows="20" maxLength="10000" (keyup)="resize()" [(ngModel)]="note.content" lines="none" ></textarea>
 
           </ion-item>
 
